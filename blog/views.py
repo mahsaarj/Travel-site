@@ -22,7 +22,7 @@ def blog_view(request,**kwargs):
     except EmptyPage :
         posts= posts.get_page(1)
     context={'posts': posts}
-    return render(request, 'blog/blog-home.html',context)
+    return render(request, 'blog/blog-single.html',context)
 
 def blog_single(request,pid):
     post = get_object_or_404(Post, pk=pid, status=1)
