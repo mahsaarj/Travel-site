@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'taggit',
     'django_extensions',
     'blog.apps.BlogConfig',
+    'account',
 ]
 
 #sites framework
