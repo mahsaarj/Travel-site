@@ -36,7 +36,7 @@ urlpatterns = [
     # path ('url address' , 'view')
     path('', include('website.urls')),
     path('blog/',include('blog.urls')),
-    path('acount/',include('account.urls')),
+    path('account/',include('account.urls')),
     path('blog/test', views.test, name='test'),
 
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps},
