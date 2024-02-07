@@ -46,8 +46,14 @@ INSTALLED_APPS = [
     'taggit',
     'django_extensions',
     'blog.apps.BlogConfig',
-    'account',
+    'django_summernote',
+    'accounts',
 ]
+
+SUMMERNOTE_CONFIG = {
+    'iframe': True,  # Set this to True if you want to use Summernote with iframe mode
+    # Other configuration options
+}
 
 #sites framework
 SITE_ID=2

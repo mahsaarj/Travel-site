@@ -18,6 +18,7 @@ class Post(models.Model):
     category = models.ManyToManyField(Category)
     counted_views = models.IntegerField(default=0)
     status = models.BooleanField(default=False)
+    login_require = models.BooleanField(default=False)
     published_date=models.DateTimeField(null=True)
     created_date=models.DateTimeField(auto_now_add=True)
     updated_date=models.DateTimeField(auto_now=True)
@@ -32,4 +33,17 @@ class Post(models.Model):
         return self.content[:100] +' ...'
 
     def get_absolute_url(self):
-        return reverse('blog:single' , kwargs={'pid': self.id})
+        return reverse('blog:single', kwargs={'pid': self.id})
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE,default=0)  # Replace 0 with the appropriate default value
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    opinion = models.TextField()
+    approved = models.BooleanField()
+
+    # Other fields and relationships for the Comment model
+
+    def __str__(self):
+        return self.name
