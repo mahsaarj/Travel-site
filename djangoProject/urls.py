@@ -26,7 +26,6 @@ from blog.sitemaps import BlogSitemap
 from django_summernote import urls as summernote_urls
 import debug_toolbar
 
-
 sitemaps = {
     "static": StaticViewSitemap,
     "blog": BlogSitemap
@@ -38,12 +37,14 @@ urlpatterns = [
     path('', include('website.urls')),
     path('blog/', include('blog.urls')),
     path('accounts/', include('accounts.urls')),
+    #path('accounts/', include('django.contrib.auth.urls')),
     path('blog/test', views.test, name='test'),
     path('summernote/', include(summernote_urls)),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",),
     path('robots.txt', include('robots.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
+    #path('captcha/', include('captcha.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
